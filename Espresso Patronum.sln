@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Espresso Patronum", "Eespresso Patronum\Espresso Patronum.csproj", "{BE49B42D-D6D1-4725-9AAC-227100336DC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE49B42D-D6D1-4725-9AAC-227100336DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE49B42D-D6D1-4725-9AAC-227100336DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE49B42D-D6D1-4725-9AAC-227100336DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE49B42D-D6D1-4725-9AAC-227100336DC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EB14ED7-2230-42BA-81F9-6A8712B7D314}
+	EndGlobalSection
+EndGlobal
