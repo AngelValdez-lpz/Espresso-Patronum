@@ -18,10 +18,12 @@ namespace Eespresso_Patronum
             InitializeComponent();
             CargarProductos();
         }
-
+        //holi h
+        //lol
         private void CargarProductos()
           {
-              
+            int gola;
+              //h
               List<Producto> productos = ObtenerProductos();
 
               // Limpiar el FlowLayoutPanel antes de agregar nuevos botones
@@ -47,7 +49,7 @@ namespace Eespresso_Patronum
                   btnProducto.Click += (sender, e) =>
                   {
                      
-                      MessageBox.Show($"Has seleccionado {producto.Nombre}!");
+                      MessageBox.Show($"Has seleccionao {producto.Nombre}!");
                   };
 
 
@@ -60,7 +62,7 @@ namespace Eespresso_Patronum
           {
               List<Producto> productos = new List<Producto>();
 
-              string consulta = "SELECT ID_Producto, Nombre, Precio, Imagen FROM Producto WHERE Activo = 1 and Categoria = 'Caliente' and tamaño = 'Mediano' ";
+              string consulta = "SELECT ID_Producto, Nombre, Precio, Imagen FROM Producto WHERE Activo = 1 and Categoria = 'Caliente' and tamaño = 'Mediano' "; 
               using (SqlConnection conexion = new SqlConnection("Server=localhost;Database=EspressoPatronum;User Id=sa;Password=1234;"))
               {
                   conexion.Open();
