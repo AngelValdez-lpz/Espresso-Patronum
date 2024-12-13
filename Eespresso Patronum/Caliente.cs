@@ -21,7 +21,7 @@ namespace Eespresso_Patronum
 
         private void CargarProductos()
           {
-              // Obtener los productos de la base de datos
+              
               List<Producto> productos = ObtenerProductos();
 
               // Limpiar el FlowLayoutPanel antes de agregar nuevos botones
@@ -43,24 +43,24 @@ namespace Eespresso_Patronum
                       BackgroundImageLayout = ImageLayout.Zoom
                   };
 
-                  // Manejar el evento click de cada botón
+                  
                   btnProducto.Click += (sender, e) =>
                   {
-                      // Aquí puedes agregar lo que quieres hacer al hacer clic en el botón
+                     
                       MessageBox.Show($"Has seleccionado {producto.Nombre}!");
                   };
 
-                  // Agregar el botón al FlowLayoutPanel
+
                   panelProductos.Controls.Add(btnProducto);
               }
           }
 
-          // Método para obtener productos de la base de datos
+
           private List<Producto> ObtenerProductos()
           {
               List<Producto> productos = new List<Producto>();
 
-              string consulta = "SELECT ID_Producto, Nombre, Precio, Imagen FROM Producto WHERE Activo = 1 and Categoria = 'Caliente'";
+              string consulta = "SELECT ID_Producto, Nombre, Precio, Imagen FROM Producto WHERE Activo = 1 and Categoria = 'Caliente' and tamaño = 'Mediano' ";
               using (SqlConnection conexion = new SqlConnection("Server=localhost;Database=EspressoPatronum;User Id=sa;Password=1234;"))
               {
                   conexion.Open();
@@ -70,13 +70,12 @@ namespace Eespresso_Patronum
                       {
                           while (reader.Read())
                           {
-                              // Crear un nuevo objeto Producto con los datos de la base de datos
                               Producto producto = new Producto
                               {
                                   ID_Producto = (int)reader["ID_Producto"],
                                   Nombre = reader["Nombre"].ToString(),
                                   Precio = (decimal)reader["Precio"],
-                                  Imagen = ByteArrayToImage((byte[])reader["Imagen"]) // Convertir el arreglo de bytes a una imagen
+                                  Imagen = ByteArrayToImage((byte[])reader["Imagen"])
                               };
                               productos.Add(producto);
                           }
@@ -87,7 +86,6 @@ namespace Eespresso_Patronum
               return productos;
           }
 
-          // Método para convertir un byte[] a un objeto Image
           private Image ByteArrayToImage(byte[] byteArray)
           {
               using (var ms = new System.IO.MemoryStream(byteArray))
@@ -100,7 +98,7 @@ namespace Eespresso_Patronum
               public int ID_Producto { get; set; }
               public string Nombre { get; set; }
               public decimal Precio { get; set; }
-              public Image Imagen { get; set; } // La imagen del producto
+              public Image Imagen { get; set; } 
           }
 
     }

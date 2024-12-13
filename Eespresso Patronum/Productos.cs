@@ -106,7 +106,7 @@ namespace Eespresso_Patronum
         {
             if(tbNombre.Text != string.Empty)
             {
-                if()
+                
             }
             if(cbCategoria.Text == "Tisanas y té" || cbCategoria.Text == "Comidas" || cbCategoria.Text == "Extras")
             {
