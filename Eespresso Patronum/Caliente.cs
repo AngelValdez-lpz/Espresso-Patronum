@@ -54,7 +54,7 @@ namespace Eespresso_Patronum
                   panelProductos.Controls.Add(btnProducto);
               }
           }
-
+        //probando cambios
 
           private List<Producto> ObtenerProductos()
           {
