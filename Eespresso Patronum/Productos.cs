@@ -43,9 +43,15 @@ namespace Eespresso_Patronum
         private void button2_Click(object sender, EventArgs e)
         {
             lbLetrero.Text = "";
-            if(tbGrande.Visible == false)
+            if(tbGrande.Visible == false && txtRutaImagen.Visible == true)
             {
                GuardarImagenEnBD(tbNombre.Text, cbCategoria.Text, "Unico", Convert.ToInt32(tbPrecio.Text), true, txtRutaImagen.Text);
+                limpiar();
+            }
+            else if(txtRutaImagen.Visible == false)
+            {
+                GuardarImagenEnBD(tbNombre.Text, cbCategoria.Text, "Extra", Convert.ToInt32(tbPrecio.Text), true, txtRutaImagen.Text);
+                txtRutaImagen.Visible = true;
                 limpiar();
             }
             else
@@ -59,6 +65,7 @@ namespace Eespresso_Patronum
                 }
                 else
                 {
+
                     lbLetrero.Text = "Rellene los campos";
                 }
             }
@@ -71,12 +78,21 @@ namespace Eespresso_Patronum
 
         public void GuardarImagenEnBD(string nombre, string categoria, string tamano, decimal precio, bool activo, string rutaImagen)
         {
-            // Convertir la imagen a un arreglo de bytes
-            byte[] imagenBytes = ConvertirImagenABytes(rutaImagen);
+            byte[] imagenBytes = null;
+
+            // Comprobar si la ruta de la imagen es nula o vacía
+            if (!string.IsNullOrEmpty(rutaImagen) && rutaImagen != "null")
+            {
+                imagenBytes = ConvertirImagenABytes(rutaImagen);
+            }
+            else
+            {
+                imagenBytes = null; // No se asigna imagen, se dejará como NULL
+            }
 
             // Consulta SQL para insertar los datos
             string consulta = "INSERT INTO Producto (Nombre, Categoria, Tamaño, Precio, Activo, Imagen) " +
-                             "VALUES (@nombre, @categoria, @tamano, @precio, @activo, @imagen)";
+                              "VALUES (@nombre, @categoria, @tamano, @precio, @activo, @imagen)";
 
             // Usar la conexión con parámetros
             using (SqlConnection conexion = new SqlConnection(conection()))
@@ -89,7 +105,9 @@ namespace Eespresso_Patronum
                     comando.Parameters.AddWithValue("@tamano", tamano);
                     comando.Parameters.AddWithValue("@precio", precio);
                     comando.Parameters.AddWithValue("@activo", activo);
-                    comando.Parameters.AddWithValue("@imagen", imagenBytes);
+
+                    // Si imagenBytes es null, se asignará DBNull.Value
+                    comando.Parameters.AddWithValue("@imagen", imagenBytes ?? (object)DBNull.Value);
 
                     // Abrir la conexión y ejecutar el comando
                     conexion.Open();
@@ -104,21 +122,29 @@ namespace Eespresso_Patronum
 
         private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tbNombre.Text != string.Empty)
-            {
-                
-            }
-            if(cbCategoria.Text == "Tisanas y té" || cbCategoria.Text == "Comidas" || cbCategoria.Text == "Extras")
+            tbGrande.Visible = false;
+            lbGrande.Visible = false;
+            txtRutaImagen.Visible = true;
+            if (cbCategoria.Text == "Tisanas y té" || cbCategoria.Text == "Comidas")
             {
                 tbGrande.Visible = false;
                 lbGrande.Visible = false;
             }
-            else
+            else if (cbCategoria.Text != "Extras")
             {
                 tbGrande.Visible = true;
                 lbGrande.Visible = true;
                 label4.Text = "Precio mediano";
             }
+            if (cbCategoria.Text == "Extras")
+            {
+                button1.Enabled = true;
+                button2.Enabled = false;
+                txtRutaImagen.Visible = false;
+            }
+
+
+
         }
 
         private void cbCategoria_KeyPress(object sender, KeyPressEventArgs e)

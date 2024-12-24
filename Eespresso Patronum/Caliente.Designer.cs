@@ -28,53 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flpExtra = new System.Windows.Forms.FlowLayoutPanel();
             this.panelProductos = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpCuenta = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.52155F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.47846F));
+            this.tableLayoutPanel1.Controls.Add(this.flpCuenta, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.flpExtra, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panelProductos, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.17007F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.82993F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(882, 588);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // flpExtra
+            // 
+            this.flpExtra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpExtra.Location = new System.Drawing.Point(3, 445);
+            this.flpExtra.Name = "flpExtra";
+            this.flpExtra.Size = new System.Drawing.Size(616, 140);
+            this.flpExtra.TabIndex = 4;
             // 
             // panelProductos
             // 
             this.panelProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelProductos.Location = new System.Drawing.Point(0, 0);
+            this.panelProductos.Location = new System.Drawing.Point(3, 3);
             this.panelProductos.Name = "panelProductos";
-            this.panelProductos.Size = new System.Drawing.Size(882, 588);
-            this.panelProductos.TabIndex = 0;
+            this.panelProductos.Size = new System.Drawing.Size(616, 436);
+            this.panelProductos.TabIndex = 3;
             // 
-            // flowLayoutPanel2
+            // flpCuenta
             // 
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 495);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(882, 93);
-            this.flowLayoutPanel2.TabIndex = 1;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(699, 0);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(183, 495);
-            this.flowLayoutPanel3.TabIndex = 2;
+            this.flpCuenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpCuenta.Location = new System.Drawing.Point(625, 3);
+            this.flpCuenta.Name = "flpCuenta";
+            this.flpCuenta.Size = new System.Drawing.Size(254, 436);
+            this.flpCuenta.TabIndex = 7;
             // 
             // Caliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 588);
-            this.Controls.Add(this.flowLayoutPanel3);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.panelProductos);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Caliente";
             this.Text = "Caliente";
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpCuenta;
+        private System.Windows.Forms.FlowLayoutPanel flpExtra;
         private System.Windows.Forms.FlowLayoutPanel panelProductos;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
     }
 }
