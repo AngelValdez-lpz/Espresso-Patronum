@@ -18,12 +18,11 @@ namespace Eespresso_Patronum
             InitializeComponent();
             CargarProductos();
         }
-        //holi h
-        //lol
+        string nombreproducto = string.Empty;
+        decimal precioproducto = decimal.Zero;
         private void CargarProductos()
           {
-            int gola;
-              //h
+            
               List<Producto> productos = ObtenerProductos();
 
               // Limpiar el FlowLayoutPanel antes de agregar nuevos botones
@@ -48,15 +47,16 @@ namespace Eespresso_Patronum
                   
                   btnProducto.Click += (sender, e) =>
                   {
-                     
                       MessageBox.Show($"Has seleccionao {producto.Nombre}!");
+                      MostrarExtras(producto.ID_Producto);
+                      nombreproducto = producto.Nombre.ToString();
+                      precioproducto = Convert.ToDecimal(producto.Precio);
                   };
 
 
                   panelProductos.Controls.Add(btnProducto);
               }
           }
-        //probando cambios
 
           private List<Producto> ObtenerProductos()
           {
@@ -103,6 +103,69 @@ namespace Eespresso_Patronum
               public Image Imagen { get; set; } 
           }
 
+
+        private void MostrarExtras(int productoID)
+        {
+            
+            flpExtra.Controls.Clear();
+
+            string consultaExtras = "SELECT id_Extra, nombre, precio FROM Extras where categoria = 'caliente'";
+
+            using (SqlConnection conexion = new SqlConnection("Server=localhost;Database=EspressoPatronum;User Id=sa;Password=1234;"))
+            {
+                SqlDataAdapter da = new SqlDataAdapter(consultaExtras, conexion);
+                DataTable dtExtras = new DataTable();
+                da.Fill(dtExtras);
+
+                foreach (DataRow row in dtExtras.Rows)
+                {
+                    Extras extraControl = new Extras
+                    {
+                        nombreExtra = row["Nombre"].ToString(),
+                        PrecioDecimal = Convert.ToDecimal(row["Precio"]),
+                        Cantidad = 0
+                    };
+
+                    flpExtra.Controls.Add(extraControl);
+                }
+            }
+        }
+
+        private void GuardarSeleccionExtras(string nombre, decimal precioProducto)
+        {
+            decimal total = 0;
+            string nombreProducto = nombre;  // Ejemplo: nombre del producto seleccionado
+            List<string> extrasSeleccionados = new List<string>();
+
+            foreach (Control control in flpExtra.Controls)
+            {
+                if (control is Extras extraControl && extraControl.Cantidad > 0)
+                {
+                    extrasSeleccionados.Add($"{extraControl.nombreExtra} (x{extraControl.Cantidad})");
+                    total += extraControl.Cantidad * extraControl.PrecioDecimal;
+                }
+            }
+
+            total += precioProducto;  // Ejemplo: precio base del producto
+
+            // Crear el ítem de cuenta
+            var cuentaItem = new CuentaItemControl
+            {
+                NombreProducto = $"{nombreProducto}",
+                Extras = $"{string.Join(", ",extrasSeleccionados)}",
+                PrecioTotal = total
+            };
+
+            flpCuenta.Controls.Add(cuentaItem);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(nombreproducto != string.Empty)
+            {
+                GuardarSeleccionExtras(nombreproducto, precioproducto);
+            }
+        }
     }
 
 }
