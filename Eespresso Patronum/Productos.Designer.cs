@@ -75,8 +75,7 @@
             "Tisanas y té",
             "Smoothies",
             "Batidos y Jugos",
-            "Comidas",
-            "Extras"});
+            "Comidas"});
             this.cbCategoria.Location = new System.Drawing.Point(62, 133);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(183, 36);

@@ -41,7 +41,7 @@ namespace Eespresso_Patronum
 
         private void button1_Click(object sender, EventArgs e)
         {
-            abrirFormHijo(new Venta());
+            abrirFormHijo(new Caliente());
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
