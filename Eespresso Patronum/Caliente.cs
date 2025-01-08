@@ -291,13 +291,21 @@ namespace Eespresso_Patronum
             flpCuenta.Controls.Add(cuentaItem);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            cargarmenu();
+            flpExtra.Controls.Clear();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if(nombreproducto != string.Empty)
+            if(nombreproducto != string.Empty && nombreLeche != string.Empty)
             {
                 GuardarSeleccionExtras(nombreproducto, precioproducto);
                 limpiar();
                 cargarmenu();
+                flpExtra.Controls.Clear();
 
             }
         }
@@ -315,13 +323,24 @@ namespace Eespresso_Patronum
 
         private void cargarmenu()
         {
+            Color colorHoverBoton = Color.FromArgb(220, 200, 180);
+            Color colorFondoBoton = Color.FromArgb(255, 248, 225); // Beige claro (#FFF8E1)
+            Color colorTextoBoton = Color.FromArgb(78, 52, 46);    // Marrón oscuro (#4E342E)
+            Color colorBordeBoton = Color.FromArgb(255, 193, 7);   // Mostaza (#FFC107)
+
             panelProductos.Controls.Clear();
             Button btnCaliente = new Button
             {
                 Width = 290,
                 Height = 90,
                 Text = "Caliente",
-                TextAlign = ContentAlignment.MiddleCenter,
+                TextAlign = ContentAlignment.TopLeft,
+                Font = new Font("Arial", 12, FontStyle.Bold), // Fuente Arial, tamaño 12, en negrita
+                ForeColor = colorTextoBoton, // Cambia el color del texto
+                BackColor = colorFondoBoton, // Cambia el color de fondo del botón
+                Image = (Image)Properties.Resources.taza_caliente__2_,
+                ImageAlign = ContentAlignment.BottomRight,
+                TextImageRelation = TextImageRelation.ImageAboveText,
                 FlatStyle = FlatStyle.Flat
             };
 
@@ -329,6 +348,17 @@ namespace Eespresso_Patronum
             {
                 categorias = "Caliente";
                 CargarProductos(categorias);
+            };
+
+            btnCaliente.MouseEnter += (s, e) =>
+            {
+                btnCaliente.BackColor = colorHoverBoton;
+                btnCaliente.FlatAppearance.BorderSize = 3;
+            };
+            btnCaliente.MouseLeave += (s, e) =>
+            {
+                btnCaliente.BackColor = colorFondoBoton;
+                btnCaliente.FlatAppearance.BorderSize = 2;
             };
             panelProductos.Controls.Add(btnCaliente);
 
@@ -338,7 +368,13 @@ namespace Eespresso_Patronum
                 Width = 290,
                 Height = 90,
                 Text = "Rocas",
-                TextAlign = ContentAlignment.MiddleCenter,
+                TextAlign = ContentAlignment.TopLeft,
+                Font = new Font("Arial", 12, FontStyle.Bold), // Fuente Arial, tamaño 12, en negrita
+                ForeColor = colorTextoBoton, // Cambia el color del texto
+                BackColor = colorFondoBoton, // Cambia el color de fondo del botón
+                Image = (Image)Properties.Resources.Rocas,
+                ImageAlign = ContentAlignment.BottomRight,
+                TextImageRelation = TextImageRelation.ImageAboveText,
                 FlatStyle = FlatStyle.Flat
             };
             btnRocas.Click += (sender, e) =>
@@ -353,13 +389,19 @@ namespace Eespresso_Patronum
             {
                 Width = 290,
                 Height = 90,
-                Text = "Frappe",
-                TextAlign = ContentAlignment.MiddleCenter,
+                Text = "Frappé",
+                TextAlign = ContentAlignment.TopLeft,
+                Font = new Font("Arial", 12, FontStyle.Bold), // Fuente Arial, tamaño 12, en negrita
+                ForeColor = colorTextoBoton, // Cambia el color del texto
+                BackColor = colorFondoBoton, // Cambia el color de fondo del botón
+                Image = (Image)Properties.Resources.frappe,
+                ImageAlign = ContentAlignment.BottomRight,
+                TextImageRelation = TextImageRelation.ImageAboveText,
                 FlatStyle = FlatStyle.Flat
             };
             btnFrappe.Click += (sender, e) =>
             {
-                categorias = "Frappe";
+                categorias = "Frappé";
                 CargarProductos(categorias);
             };
             panelProductos.Controls.Add(btnFrappe);
@@ -369,7 +411,13 @@ namespace Eespresso_Patronum
                 Width = 290,
                 Height = 90,
                 Text = "Smoothies",
-                TextAlign = ContentAlignment.MiddleCenter,
+                TextAlign = ContentAlignment.TopLeft,
+                Font = new Font("Arial", 12, FontStyle.Bold), // Fuente Arial, tamaño 12, en negrita
+                ForeColor = colorTextoBoton, // Cambia el color del texto
+                BackColor = colorFondoBoton, // Cambia el color de fondo del botón
+                Image = (Image)Properties.Resources.smoothie,
+                ImageAlign = ContentAlignment.BottomRight,
+                TextImageRelation = TextImageRelation.ImageAboveText,
                 FlatStyle = FlatStyle.Flat
             };
             btnSmoothies.Click += (sender, e) =>
@@ -383,13 +431,19 @@ namespace Eespresso_Patronum
             {
                 Width = 290,
                 Height = 90,
-                Text = "Batidos y jugos",
-                TextAlign = ContentAlignment.MiddleCenter,
+                Text = "Batidos y Jugos",
+                TextAlign = ContentAlignment.TopLeft,
+                Font = new Font("Arial", 12, FontStyle.Bold), // Fuente Arial, tamaño 12, en negrita
+                ForeColor = colorTextoBoton, // Cambia el color del texto
+                BackColor = colorFondoBoton, // Cambia el color de fondo del botón
+                Image = (Image)Properties.Resources.jugo,
+                ImageAlign = ContentAlignment.BottomRight,
+                TextImageRelation = TextImageRelation.ImageAboveText,
                 FlatStyle = FlatStyle.Flat
             };
             btnBatidos.Click += (sender, e) =>
             {
-                categorias = "Batidos y jugos";
+                categorias = "Batidos y Jugos";
                 CargarProductos(categorias);
             };
             panelProductos.Controls.Add(btnBatidos);
@@ -398,13 +452,19 @@ namespace Eespresso_Patronum
             {
                 Width = 290,
                 Height = 90,
-                Text = "Tizanas y te",
-                TextAlign = ContentAlignment.MiddleCenter,
+                Text = "Tisanas y té",
+                TextAlign = ContentAlignment.TopLeft,
+                Font = new Font("Arial", 12, FontStyle.Bold), // Fuente Arial, tamaño 12, en negrita
+                ForeColor = colorTextoBoton, // Cambia el color del texto
+                BackColor = colorFondoBoton, // Cambia el color de fondo del botón
+                Image = (Image)Properties.Resources.tisana,
+                ImageAlign = ContentAlignment.BottomRight,
+                TextImageRelation = TextImageRelation.ImageAboveText,
                 FlatStyle = FlatStyle.Flat
             };
             btntizanas.Click += (sender, e) =>
             {
-                categorias = "Tizanas y te";
+                categorias = "Tisanas y té";
                 CargarProductos(categorias);
             };
             panelProductos.Controls.Add(btntizanas);
@@ -414,7 +474,13 @@ namespace Eespresso_Patronum
                 Width = 590,
                 Height = 90,
                 Text = "Comidas",
-                TextAlign = ContentAlignment.MiddleCenter,
+                TextAlign = ContentAlignment.TopLeft,
+                Font = new Font("Arial", 12, FontStyle.Bold), // Fuente Arial, tamaño 12, en negrita
+                ForeColor = colorTextoBoton, // Cambia el color del texto
+                BackColor = colorFondoBoton, // Cambia el color de fondo del botón
+                Image = (Image)Properties.Resources.comida,
+                ImageAlign = ContentAlignment.BottomRight,
+                TextImageRelation = TextImageRelation.ImageAboveText,
                 FlatStyle = FlatStyle.Flat
             };
             btnComidas.Click += (sender, e) =>
@@ -424,6 +490,8 @@ namespace Eespresso_Patronum
             };
             panelProductos.Controls.Add(btnComidas);
         }
+        
+
     }
 
 }

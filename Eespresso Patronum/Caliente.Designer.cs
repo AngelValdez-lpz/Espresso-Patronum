@@ -34,6 +34,7 @@
             this.panelProductos = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +80,7 @@
             // panelProductos
             // 
             this.panelProductos.AutoScroll = true;
+            this.panelProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(234)))), ((int)(((byte)(214)))));
             this.panelProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelProductos.Location = new System.Drawing.Point(4, 4);
             this.panelProductos.Name = "panelProductos";
@@ -87,6 +89,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(631, 444);
@@ -96,13 +99,23 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(18, 24);
+            this.button1.Location = new System.Drawing.Point(3, 42);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 33);
+            this.button1.Size = new System.Drawing.Size(244, 33);
             this.button1.TabIndex = 9;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 33);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Agregar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Caliente
             // 
@@ -127,5 +140,6 @@
         private System.Windows.Forms.FlowLayoutPanel panelProductos;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

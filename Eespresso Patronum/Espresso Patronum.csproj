@@ -121,13 +121,14 @@
       <DependentUpon>Productos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Venta.resx">
       <DependentUpon>Venta.cs</DependentUpon>
@@ -145,6 +146,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taza-caliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taza-caliente %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taza-caliente %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tisana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frappe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jugo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rocas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smoothie.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
